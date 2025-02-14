@@ -4,9 +4,19 @@
 
 ## Getting started
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+```
+git clone https://gitlab.com/evparg/analysis-ready-bgc-argo-dataset.git # Download the source code
+cd analysis-ready-bgc-argo-dataset # Move to the source code directory
+```
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+For developers only, do the following to configure Git environment for Jupyter Notebook (this needs to be done for the first time only)
+
+```
+pip install nbdime nbstripout # Install the relevant packages
+nbdime config-git --enable # Configure nbdime
+nbstripout --install  # Automatically strip output before committing
+
+```
 
 ## Add your files
 
