@@ -33,7 +33,7 @@ nbstripout --install  # Automatically strip output before committing
 If you are unfamiliar with git, you can download source code by clicking on **Code** (in blue) above and choose **Download source code** (e.g., as a zip file).
 
 ### Open Jupyter environment (Notebook or Lab)
-This can be done via GUI or in command line as:
+This can be done either via clicking or in command line as:
 ```
 jupyter notebook
 ```
@@ -41,5 +41,6 @@ or
 ```
 jupyter lab
 ```
+
 
 ## Extra
