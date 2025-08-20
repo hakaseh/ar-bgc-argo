@@ -1,7 +1,9 @@
 # Jupyter Notebook for generating analysis-ready BGC-Argo datasets
-Authors: Hakase Hayashida and Haruto Fujishima
+Authors: Hakase Hayashida (JAMSTEC) and Haruto Fujishima (Tohoku University)
 
-## Introduction
+This repository provides Jupyter Notebooks for post-processing the profiles of a selected BGC-Argo float to make them "analysis-ready" by filtering the raw data via quality-control (QC) flags and smoothing and then interpolating each profile to common depths. Variable-specific treatment (e.g., NPQ correction for chlorophyll-a) and additional variables (e.g., mixed-layer depth) are derived and saved as a netCDF file together with other BGC variables.
+
+## Contents
 This repository contains Jupyter Notebooks that do the following:
 
 1. Search for BGC-Argo float(s) of your interest (`search.ipynb`)
@@ -11,15 +13,22 @@ This repository contains Jupyter Notebooks that do the following:
 ### search.ipynb
 ***You can skip this notebook if you already have specific float(s) in mind***
 
-This
+This notebook searches for BGC-Argo floats based on the user's selection criteria such as spatial coverage, time period, and variables.
+
+This notebook is recommended for users who are looking for floats that have:
+- a consistent sampling frequency () 
+- at least for a specific duration ()
+- the drifting speed of the float is relevant ()
+
+If none of the above are relevant, we recommend other tools such as [Argo Fleet Monitoring](https://fleetmonitoring.euro-argo.eu/dashboard?Status=Active), which may be easier to use for searching.
 
 ### download.ipynb
 ***You can skip this notebook if you have already downloaded the profiles of the float of your interest.***
 
-This
+This notebook downloads the profiles of a selected float using `wget`.
 
 ### generate.ipynb
-This notebook is the
+This notebook is the core of the project and it post-processes the raw data by filtering, smoothing, and interpolation to make them "analysis-ready".
 
 1. Visualize the raw data
 1. QC to filter out bad data
