@@ -2,10 +2,25 @@
 Authors: Hakase Hayashida and Haruto Fujishima
 
 ## Introduction
-This repository contains two Jupyter Notebooks (with the `.ipynb` extension) that do the following:
+This repository contains Jupyter Notebooks that do the following:
 
-1. Identify the float of your interest
-1. Download the profiles
+1. Search for BGC-Argo float(s) of your interest (`search.ipynb`)
+1. Download the profiles of a selected float (`download.ipynb`)
+1. Generate the analysis-ready dataset of a selected float (`generate.ipynb`)
+
+### search.ipynb
+***You can skip this notebook if you already have specific float(s) in mind***
+
+This
+
+### download.ipynb
+***You can skip this notebook if you have already downloaded the profiles of the float of your interest.***
+
+This
+
+### generate.ipynb
+This notebook is the
+
 1. Visualize the raw data
 1. QC to filter out bad data
 1. Smooth the data
@@ -14,7 +29,6 @@ This repository contains two Jupyter Notebooks (with the `.ipynb` extension) tha
 1. Apply variable-specific post-processing and/or derive additional variables
 1. Save to netCDF
 
-where the first two steps are done in `search-argo-float.ipynb` and the rest are done in `plot-and-generate.ipynb`.
 
 ## Getting started
 
