@@ -40,7 +40,7 @@ This is the main notebook, which post-processes the raw data by filtering, smoot
 1. Visualize the raw data. `fig-raw-*.png`
 1. Filter out bad data based on QC flags (default: 1, 2, 5, 8). `fig-good-*.png`
 1. Smooth the data using *n*-point median filter where *n* is determined based on the vertical resolution, following [Schmechtig et al. 2023](https://archimer.ifremer.fr/doc/00243/35385/). `fig-smooth-*.png`
-1. Interpolate the data at defined depths. `fig-int-*.png`
+1. Interpolate the data at defined depths (default resolution = 5 dbar, which is about [the uncertainty of pressure measurements](https://argo.ucsd.edu/data/data-faq/#accurate)). `fig-int-*.png`
 1. Apply additional treatments and derivations. `fig-extra-*.png`
 1. Save as a netCDF file. `AR[WMOID].nc` where `AR` stands for Analysis-Ready and `[WMOID]` is the WMO ID of the selected float.
 
@@ -51,8 +51,8 @@ Users need to provide the WMO ID of the float and the vertical resolution and ex
 ### Measured variables
 | Variable | Units | Uncertainty |
 | ------ | ------ | ------ |
-| Temperature | $^{\circ}$C | ? |
-| Salinity | PSU | ? |
+| Temperature | $^{\circ}$C | [0.002 $^{\circ}$C](https://argo.ucsd.edu/data/data-faq/#accurate) |
+| Salinity | psu | [0.01 psu](https://argo.ucsd.edu/data/data-faq/#accurate) |
 | PAR | W m$^{-2}$ | ? |
 | Nitrate | $\mu$mol kg$^{-1}$ | 0.5 $\mu$mol kg$^{-1}$ |
 | Chlorophyll-a | mg m$^{-3}$ | 50 % |
@@ -88,6 +88,12 @@ pip install nbdime nbstripout
 nbdime config-git --enable
 nbstripout --install  # Automatically strip output before committing
 ```
+
+### Key references and useful websites
+- [Wong et al. 2020](https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2020.00700/full): this paper provides an overview of Argo
+- [Claustre et al. 2020](https://doi.org/10.1146/annurev-marine-010419-010956): this paper provides an overview of BGC-Argo
+- [OceanOPS Argo map](https://www.ocean-ops.org/maps/static/?t=Argo): for Argo float coverage
+- [Argo fleet monitoring](https://fleetmonitoring.euro-argo.eu/dashboard): floats
 
 ---
 
