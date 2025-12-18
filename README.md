@@ -1,40 +1,45 @@
-# Jupyter Notebook for generating analysis-ready BGC-Argo datasets
+# ar-bgc-argo: analysis-ready BGC-Argo float time series
 
-[:japan: 日本語はこちら](#解析可能な生物地球化学アルゴデータセットを作成するためのjupyter-notebook)
+[:japan: 日本語はこちら](#解析可能な生物地球化学アルゴフロートの時系列)
 
 Developers: Hakase Hayashida (JAMSTEC) and Haruto Fujishima (Tohoku University)
 
-This repository provides Jupyter Notebooks for pre-processing the profiles of BGC-Argo floats to make them "analysis-ready" by quality-control (QC) filtering, smoothing, and interpolation. Variable-specific treatment (e.g., NPQ correction for chlorophyll-a) and derivation of additional variables (e.g., mixed-layer depth) are applied and saved as a netCDF file together with other BGC variables.
+`ar-bgc-argo` is a collection of Jupyter Notebook templates for searching, downloading, and post-processing the concatenated synthetic-profile time series of BGC-Argo floats.
 
-If you use our notebook, please cite the following paper as a reference:
+To use these templates, simply create a copy (and rename it), modify the user inputs, and run it on your Jupyter environment. **But please remember to cite the following paper to make us happy 😃:**
 
-`Fujishima, H. and Hayashida, H. (in prep): Jupyter Notebook for generating analysis-ready biogeochemical Argo float time series, Journal of Open Source Software.`
+`Fujishima, H. and Hayashida, H. (submitted): ar-bgc-argo: Jupyter Notebook templates for searching, downloading, and post-processing biogeochemical Argo float time series, Journal of Open Source Software.`
 
 ## Contents
-This repository contains three Jupyter Notebook templates that do the following:
+`ar-bgc-argo` consists of three Jupyter Notebook templates that do the following:
 
 - Search for BGC-Argo float(s) of your interest (`search.ipynb`)
-- Download the profiles of a selected float (`download.ipynb`)
-- Generate the analysis-ready dataset of a selected float (`generate.ipynb`)
+- Download the concatenated synthetic-profile time series of a selected float (`download.ipynb`)
+- Generate the analysis-ready BGC-Argo float time series of a selected float (`generate.ipynb`)
 
-### `search.ipynb`
+### `search.ipynb` 🗺️
 ***You can skip this notebook if you already have specific float(s) in mind***
+`search.ipynb` searches for BGC-Argo floats based on the user's selection criteria such as spatial coverage, time period, and variables.
 
-This notebook searches for BGC-Argo floats based on the user's selection criteria such as spatial coverage, time period, and variables.
+`search.ipynb` may be particularly useful for users who are looking for floats that collected profiles:
+- at least for a specific duration (e.g., 365 days, if you study an annual cycle). Modify `mindays`.
+- at a specific sampling frequency (e.g., 7 days, if you study a weekly variability). Modify `minfreq`.
+- at a specific drift speed (e.g., 0.05 m/s, if you study quasi-Eulerian )
 
-This notebook is recommended for users who are looking for floats that have:
-- a consistent sampling frequency () 
-- at least for a specific duration ()
-- the drifting speed of the float is relevant ()
+Your input:
+``
 
 If none of the above are relevant, we recommend other tools such as [Argo Fleet Monitoring](https://fleetmonitoring.euro-argo.eu/dashboard?Status=Active), which may be easier to use for searching.
 
-### `download.ipynb`
-***You can skip this notebook if you have already downloaded the profiles of the float of your interest.***
+### `download.ipynb` 💻
+***You can skip this notebook if you have already downloaded the concatenated synthetic-profile time series (e.g., 1234567_Sprof.nc) of your favorite float.***
+`download.ipynb` does the following:
+- create
 
-This notebook downloads the synthetic profiles of a selected float using `wget`.
+Your input:
+`wmoids`: a list containing the WMO ID(s) of your favorite float(s).
 
-### `generate.ipynb`
+### `generate.ipynb` 🍰
 This is the main notebook, which post-processes the raw data by filtering, smoothing, and interpolation to make them "analysis-ready". Specifically, it will take the following steps and produces figures (*.png) and a netCDF file at the end:
 
 1. Visualize the raw data. `fig-raw-*.png`
@@ -76,8 +81,8 @@ This is the main notebook, which post-processes the raw data by filtering, smoot
 
 ## Notes
 
-### Techincal details on the data
-- We post-process **adjusted** values of the **synthetic** profiles in both **real-time** and **delayed** mode.
+### Old repository
+`ar-bgc-argo` was initially hosted on Gitlab, but was later moved to Github for the JOSS submission. We kept the old repository for reference to [issues](https://gitlab.com/evparg/analysis-ready-bgc-argo-dataset/-/issues).
 
 ### Developers
 For developers, do the following to configure git environment for Jupyter Notebook (this needs to be done for the first time only). This will strip output in the notebooks before committing, which makes code changes trackable.
@@ -95,15 +100,15 @@ nbstripout --install  # Automatically strip output before committing
 
 ---
 
-# 解析可能な生物地球化学アルゴデータセットを作成するためのJupyter Notebook
+# 解析可能な生物地球化学アルゴフロートの時系列
 
 開発者：　林田博士（海洋研究開発機構）・藤島遼人（東北大学）
 
-このレポジトリでは、生物地球化学アルゴ(BGC-Argo)フロートのプロファイルにフィルタリング・スムージング・内挿といった前処理を施して"解析可能"なデータセットを創出するJupyter Notebookを提供しています。
+`ar-bgc-argo`は、生物地球化学アルゴ(BGC-Argo)フロートのsynthetic-profile時系列を"解析可能"な状態にデータセットを創出するJupyter Notebookを提供しています。
 
-ノートブックを使われる際は、以下の文献の引用をお願いいたします：
+ノートブックを使われる際は、以下の文献の引用をお願いいたします 🙇：
 
-`Fujishima, H. and Hayashida, H. (in prep): Jupyter Notebook for generating analysis-ready biogeochemical Argo float time series, Journal of Open Source Software.`
+`Fujishima, H. and Hayashida, H. (submitted): ar-bgc-argo: Jupyter Notebook templates for searching, downloading, and post-processing biogeochemical Argo float time series, Journal of Open Source Software.`
 
 ## 構成
 このレポジトリは以下のJupyter Notebookで構成されています：
@@ -162,16 +167,19 @@ nbstripout --install  # Automatically strip output before committing
 | 大きい粒子 | m$^{-1}$ | 700nm粒子後方散乱係数 | [Briggs et al. 2020](https://science.sciencemag.org/content/367/6479/791) | 
 
 
-## 使い方
+## 使い方 📘
 1. レポジトリをダウンロードする。コマンドラインの場合、`git clone`。それ以外の場合は、ページ上部の**Code（青色のアイコン）**→**Download source code**をクリックしてZipファイルとしてダウンロードする。
 1. Jupyterを起動する。コマンドラインの場合、`jupyter notebook`または`jupyter lab`。それ以外の場合は、例えば[Anaconda Navigator](https://www.anaconda.com/products/navigator))を使用する。
 1. 使いたいノートブックのコピーを作る（例：`search-Copy.ipynb`）。コピーしたノートブックは元のノートブックと同じディレクトリに置く。
 1. ノートブックを開いて`User input begins`から`User input ends`の間の部分をカスタマイズしてノートブックを実行する。
 
-## 連絡先
-ご質問・ご意見・ご提案は、hakaseh@jamstec.go.jp（林田博士）までメールにてお寄せ下さい。Gitlabをお持ちの方は、Issuesにご投稿いただいても構いません。
+## 連絡先 ✋
+質問やコメントは、hakaseh@jamstec.go.jp（林田博士）までメールしてください。[Issues](https://github.com/hakaseh/ar-bgc-argo/issues)への投稿も歓迎します。
 
 ## 補足
+### 古いレポ
+`ar-bgc-argo`は以前はGitlabで管理していましたが、JOSS投稿のためにGithubに異動しました。参考のために古いレポは消さずに[issues](https://gitlab.com/evparg/analysis-ready-bgc-argo-dataset/-/issues)は閲覧できるようにしてあります。
+
 
 ### 参考文献・Webサイト
 - [Wong et al. 2020](https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2020.00700/full): Argo計画の概要論文
