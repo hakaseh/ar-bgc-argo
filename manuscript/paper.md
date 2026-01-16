@@ -70,7 +70,6 @@ target float is already known. Upon execution, `download.ipynb` creates a direct
 
 # Acknowledgements
 
-# References
-
 BGC-Argo data are freely available through one of the two Global Data Assembly Centers (GDAC), using the WMO number of the float, which is its specific identifier. We thank Hidehiro Fujio for computational assistance and Pete Strutton, Clara Vives, Kanako Sato, Yoshimi Kawai for insightful discussion on BGC-Argo floats and feedback on earlier versions of `ar-bgc-argo`. This work was supported by JSPS KAKENHI Grant Number JP24H02226 and the Nakajima Foundation.
 
+# References
