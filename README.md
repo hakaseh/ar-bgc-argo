@@ -2,8 +2,6 @@
 
 [:japan: 日本語はこちら](#解析可能な生物地球化学アルゴフロートの時系列)
 
-Developers: Hakase Hayashida (JAMSTEC) and Haruto Fujishima (Tohoku University)
-
 `ar-bgc-argo` is a collection of Jupyter Notebook templates for searching, downloading, and post-processing the concatenated synthetic-profile time series of BGC-Argo floats.
 
 To use these templates, simply create a copy (and rename it), modify the user inputs, and run it on your Jupyter environment. **But please remember to cite the following paper to make us happy 😃:**
@@ -26,28 +24,24 @@ To use these templates, simply create a copy (and rename it), modify the user in
 - at a specific sampling frequency (e.g., 7 days, if you study a weekly variability). Modify `minfreq`.
 - at a specific drift speed (e.g., 0.05 m/s, if you study quasi-Eulerian )
 
-Your input:
-``
-
 If none of the above are relevant, we recommend other tools such as [Argo Fleet Monitoring](https://fleetmonitoring.euro-argo.eu/dashboard?Status=Active), which may be easier to use for searching.
 
 ### `download.ipynb` 💻
 ***You can skip this notebook if you have already downloaded the concatenated synthetic-profile time series (e.g., 1234567_Sprof.nc) of your favorite float.***
-`download.ipynb` does the following:
-- create
 
-Your input:
-`wmoids`: a list containing the WMO ID(s) of your favorite float(s).
+`download.ipynb` downloads the synthetic-profile time series of your choice. You need to specify the float's 7-digit WMOID.
 
 ### `generate.ipynb` 🍰
 This is the main notebook, which post-processes the raw data by filtering, smoothing, and interpolation to make them "analysis-ready". Specifically, it will take the following steps and produces figures (*.png) and a netCDF file at the end:
 
-1. Visualize the raw data. `fig-raw-*.png`
-1. Filter out bad data based on QC flags (default: 1, 2, 5, 8). `fig-good-*.png`
-1. Smooth the data using *n*-point median filter where *n* is determined based on the vertical resolution, following [Schmechtig et al. 2023](https://archimer.ifremer.fr/doc/00243/35385/). `fig-smooth-*.png`
-1. Interpolate the data at defined depths (default resolution = 5 dbar, which is about [the uncertainty of pressure measurements](https://argo.ucsd.edu/data/data-faq/#accurate)). `fig-int-*.png`
-1. Apply additional treatments and derivations. `fig-extra-*.png`
-1. Save as a netCDF file. `AR[WMOID].nc` where `AR` stands for Analysis-Ready and `[WMOID]` is the WMO ID of the selected float.
+1. Read raw profiles (e.g. `1234567_Sprof.nc`).
+1. Filter using Quality Control (QC) values (default: 1, 2, 5, 8).
+1. Smooth CHLA_ADJUSTED based on Schmechtig et al. (2023).
+1. Decompose BBP700_ADJUSTED into BBP700SM_ADJUSTED (<100 um) and BBP700LG_ADJUSTED (>100 um) based on Briggs et al. (2020).
+1. Interpolate based on Akima (1970) (default resolution = 5 dbar, which is about [the uncertainty of pressure measurements](https://argo.ucsd.edu/data/data-faq/#accurate)). 
+1. Apply NPQ correction to CHL_ADJUSTED based on Xing et al. (2012).
+1. Derive additional variables using TEOS-10 (GSW-Python).
+1. Save the analysis-ready profiles as a netCDF file (e.g., `AR1234567.nc`).
 
 ## Variables
 
@@ -66,18 +60,21 @@ This is the main notebook, which post-processes the raw data by filtering, smoot
 ### Derived varaibles
 | Variable | Units | Derived from | Methods |
 | ------ | ------ | ------ | ------ |
-| Sigma0 | kg m$^{-3}$ | T, S | [TEOS-10](https://teos-10.github.io/GSW-Python/gsw_flat.html) |
 | MLD | m | Sigma0 | [TEOS-10](https://teos-10.github.io/GSW-Python/gsw_flat.html) |
-| Spiciness0 | kg m$^{-3}$ | T, S | [TEOS-10](https://teos-10.github.io/GSW-Python/gsw_flat.html) |
-| O2sol | $\mu$mol kg$^{-1}$ | T, S | [TEOS-10](https://teos-10.github.io/GSW-Python/gsw_flat.html) |
-| BBP700S | m$^{-1}$ | BBP700 | [Briggs et al. 2020](https://science.sciencemag.org/content/367/6479/791) |
-| BBP700L | m$^{-1}$ | BBP700 | [Briggs et al. 2020](https://science.sciencemag.org/content/367/6479/791) | 
+| SIGMA0 | kg m$^{-3}$ | T, S | [TEOS-10](https://teos-10.github.io/GSW-Python/gsw_flat.html) |
+| SPICINESS0 | kg m$^{-3}$ | T, S | [TEOS-10](https://teos-10.github.io/GSW-Python/gsw_flat.html) |
+| O2SOL | $\mu$mol kg$^{-1}$ | T, S | [TEOS-10](https://teos-10.github.io/GSW-Python/gsw_flat.html) |
+| BBP700SM | m$^{-1}$ | BBP700 | [Briggs et al. 2020](https://science.sciencemag.org/content/367/6479/791) |
+| BBP700LG | m$^{-1}$ | BBP700 | [Briggs et al. 2020](https://science.sciencemag.org/content/367/6479/791) | 
 
 ## Getting started
 1. Download the repository via `git clone` or by clicking on **Code** (in blue) above and choose **Download source code** (e.g., as a zip file).
 1. Start a Jupyter session (`jupyter notebook` or `jupyter lab`). Alternatively, you can use a GUI version (e.g., [Anaconda Navigator](https://www.anaconda.com/products/navigator)).
 1. Create a copy of the template you want to use and open the copied notebook.
 1. Modify the input based on your need and run through the notebook.
+
+## Contact
+Please feel free to message @hakaseh for questions, suggestions, and comments. We welcome creating new issues or contributing to existing ones ([Issues](https://github.com/hakaseh/ar-bgc-argo/issues)).
 
 ## Notes
 
@@ -101,8 +98,6 @@ nbstripout --install  # Automatically strip output before committing
 ---
 
 # 解析可能な生物地球化学アルゴフロートの時系列
-
-開発者：　林田博士（海洋研究開発機構）・藤島遼人（東北大学）
 
 `ar-bgc-argo`は、生物地球化学アルゴ(BGC-Argo)フロートのsynthetic-profile時系列を"解析可能"な状態にデータセットを創出するJupyter Notebookを提供しています。
 
@@ -136,10 +131,10 @@ nbstripout --install  # Automatically strip output before committing
 このノートブックは、ダウンロードしたプロファイル一式に前処理を施して解析可能な鉛直時系列を創出します。具体的には次の順に処理され各ステップで図(PNG形式)が作成されます。そして最後にnetCDFファイルが創出されます:
 
 1. 全データを可視化 `fig-raw-*.png`
-1. 品質管理(QC)フラグをもとに良データのみを可視化 (良データと考えられるQCフラグのデフォルト値: 1, 2, 5, 8) `fig-good-*.png`
-1. N点中央値フィルタで平滑化(Nは鉛直解像度をもとに決定；[Schmechtig et al. 2023](https://archimer.ifremer.fr/doc/00243/35385/)) `fig-smooth-*.png`
-1. 指定した鉛直解像度と深度範囲で内挿 (デフォルト解像度：5 dbar, [深度観測の基準誤差](https://argo.ucsd.edu/data/data-faq/#accurate)). `fig-int-*.png`
-1. その他、補正および導出変数の計算 `fig-extra-*.png`
+1. 品質管理(QC)フラグをもとに良データのみを可視化 (良データと考えられるQCフラグのデフォルト値: 1, 2, 5, 8) 
+1. N点中央値フィルタで平滑化(Nは鉛直解像度をもとに決定；[Schmechtig et al. 2023](https://archimer.ifremer.fr/doc/00243/35385/)) 
+1. 指定した鉛直解像度と深度範囲で内挿 (デフォルト解像度：5 dbar, [深度観測の基準誤差](https://argo.ucsd.edu/data/data-faq/#accurate)). 
+1. その他、補正および導出変数の計算 
 1. netCDF形式で鉛直時系列データを保存。ファイル名は`AR[WMOID].nc` (`AR`はAnalysis-Readyの略で`[WMOID]`フロート番号)
 
 ## 変数
@@ -174,12 +169,11 @@ nbstripout --install  # Automatically strip output before committing
 1. ノートブックを開いて`User input begins`から`User input ends`の間の部分をカスタマイズしてノートブックを実行する。
 
 ## 連絡先 ✋
-質問やコメントは、hakaseh@jamstec.go.jp（林田博士）までメールしてください。[Issues](https://github.com/hakaseh/ar-bgc-argo/issues)への投稿も歓迎します。
+質問やコメントは、@hakasehまで。[Issues](https://github.com/hakaseh/ar-bgc-argo/issues)への投稿も歓迎します。
 
 ## 補足
 ### 古いレポ
 `ar-bgc-argo`は以前はGitlabで管理していましたが、JOSS投稿のためにGithubに異動しました。参考のために古いレポは消さずに[issues](https://gitlab.com/evparg/analysis-ready-bgc-argo-dataset/-/issues)は閲覧できるようにしてあります。
-
 
 ### 参考文献・Webサイト
 - [Wong et al. 2020](https://www.frontiersin.org/journals/marine-science/articles/10.3389/fmars.2020.00700/full): Argo計画の概要論文
