@@ -74,7 +74,7 @@ This is the main notebook, which post-processes the raw data by filtering, smoot
 1. Modify the input based on your need and run through the notebook.
 
 ## Contact
-Please feel free to message @hakaseh for questions, suggestions, and comments. We welcome creating new issues or contributing to existing ones ([Issues](https://github.com/hakaseh/ar-bgc-argo/issues)).
+Please feel free to message [@hakaseh](https://github.com/hakaseh) for questions, suggestions, and comments. We welcome creating new issues or contributing to existing ones ([Issues](https://github.com/hakaseh/ar-bgc-argo/issues)).
 
 ## Notes
 
@@ -169,7 +169,7 @@ nbstripout --install  # Automatically strip output before committing
 1. ノートブックを開いて`User input begins`から`User input ends`の間の部分をカスタマイズしてノートブックを実行する。
 
 ## 連絡先 ✋
-質問やコメントは、@hakasehまで。[Issues](https://github.com/hakaseh/ar-bgc-argo/issues)への投稿も歓迎します。
+質問やコメントは、[@hakaseh](https://github.com/hakaseh)まで。[Issues](https://github.com/hakaseh/ar-bgc-argo/issues)への投稿も歓迎します。
 
 ## 補足
 ### 古いレポ
