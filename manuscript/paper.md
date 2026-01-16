@@ -1,11 +1,11 @@
 ---
-title: "ar-bgc-argo: Jupyter Notebook templates for searching, downloading, and post-processing biogeochemical Argo float time series"
+title: 'ar-bgc-argo: Jupyter Notebook templates for searching, downloading, and post-processing biogeochemical Argo float time series'
 tags: 
-  -BGC-Argo
-  -Jupyter Notebook
-  -Python
-  -Oceanography
-  -Marine ecosystems
+  - BGC-Argo
+  - Jupyter Notebook
+  - Python
+  - Oceanography
+  - Marine ecosystems
 
 authors:
   - name: Haruto Fujishima
@@ -30,7 +30,7 @@ bibliography: paper.bib
 
 # Summary
 
-ar-bgc-argo is a set of Jupyter Notebook templates that transform raw profiles of biogeochemical Argo (BGC-Argo) floats into "analysis-ready" time series of ocean temperature, salinity, and biogeochemical variables. Users can search for floats based the dates, geographic region, and biogeochemical variables of their interests. After downloading the profile time series of a selected float, ar-bgc-argo can visualize, filter, interpolate, and save the post-processed time series as a netCDF file. In addition, ar-bgc-argo applies variable-specific treatments and derive additional oceanographic variables using empirical equations. ar-bgc-argo is designed to help expand the end users of the growing BGC-Argo float data.
+`ar-bgc-argo` is a set of Jupyter Notebook templates that transform raw profiles of biogeochemical Argo (BGC-Argo) floats into "analysis-ready" time series of ocean temperature, salinity, and biogeochemical variables. Users can search for floats based the dates, geographic region, and biogeochemical variables of their interests. After downloading the profile time series of a selected float, `ar-bgc-argo` can visualize, filter, interpolate, and save the post-processed time series as a netCDF file. In addition, `ar-bgc-argo` applies variable-specific treatments and derive additional oceanographic variables using empirical equations. `ar-bgc-argo` is designed to help expand the end users of the growing BGC-Argo float data.
 
 # Statement of need
 
@@ -38,15 +38,15 @@ Biogeochemical Argo (BGC-Argo) is a global network of autonomous profiling float
 
 Despite the growing application of BGC-Argo data, the raw profiles include technical errors and doubtful values because of poor sensor calibration and high sensitivity to noise and artifacts. Furthermore, the data are unfiltered (containing both good- and bad-quality samples) and have inconsistent sampling depths among profiles from a given float. These issues necessitate post-processing prior to scientific analysis, which requires technical knowledge hence, becomes a time-consuming task.
 
-![Figure 1: Global coverage of operational BGC-Argo floats as of December 2025 (<https://www.ocean-ops.org/share/Argo/Maps/bgc.png>; accessed on January 16, 2026). (figures/Figure1.png)
+![Figure 1: Global coverage of operational BGC-Argo floats as of December 2025 (<https://www.ocean-ops.org/share/Argo/Maps/bgc.png>; accessed on January 16, 2026)](figures/Figure1.png)
 
 # Overview of ar-bgc-argo
 
-ar-bgc-argo consists of three Jupyter Notebook templates: search.ipynb; download.ipynb; and generate.ipynb. To use these templates, users create a copy of the template of their interest, modify its inputs, and run it on their Jupyter environment.
+`ar-bgc-argo` consists of three Jupyter Notebook templates: `search.ipynb`; `download.ipynb`; and `generate.ipynb`. To use these templates, users create a copy of the template of their interest, modify its inputs, and run it on their Jupyter environment.
 
 ## search.ipynb
 
-search.ipynb searches for BGC-Argo floats from the synthetic-profile index file (argo_synthetic-profile_index.txt) of the Global Data Assembly Center (GDAC; [bittig2019]) and based on the user inputs, including the temporal and spatial coverages and the biogeochemical variables of interest. In addition, search.ipynb allows users to narrow
+`search.ipynb` searches for BGC-Argo floats from the synthetic-profile index file (argo_synthetic-profile_index.txt) of the Global Data Assembly Center (GDAC; [bittig2019]) and based on the user inputs, including the temporal and spatial coverages and the biogeochemical variables of interest. In addition, `search.ipynb` allows users to narrow
 down the float selection based on three key criteria:
 
 - mindays: the minimum duration of the data record to ensure sufficient temporal coverage (e.g., at least 365 days).
@@ -59,16 +59,15 @@ The trajectories of all qualified floats based on the search criteria are drawn 
 
 ## download.ipynb
 
-download.ipynb retrieves the concatenated synthetic-profiles time series of a selected float (\[wmoid\]\_Sprof.nc, where \[wmoid\] is the seven-digit World Meteorological Organization Identifier or WMO ID). While download.ipynb naturally follows the selection made in search.ipynb, it can also be used independently if the WMO ID of the
-target float is already known. Upon execution, download.ipynb creates a directory named after the WMO ID to store the data. It then identifies the correct file path from the synthetic-profile index file and downloads the data from one of the two GDACs.
+`download.ipynb` retrieves the concatenated synthetic-profiles time series of a selected float (\[wmoid\]\_Sprof.nc, where \[wmoid\] is the seven-digit World Meteorological Organization Identifier or WMO ID). While `download.ipynb` naturally follows the selection made in `search.ipynb`, it can also be used independently if the WMO ID of the
+target float is already known. Upon execution, `download.ipynb` creates a directory named after the WMO ID to store the data. It then identifies the correct file path from the synthetic-profile index file and downloads the data from one of the two GDACs.
 
 ## generate.ipynb
 
-generate.ipynb is the core component of ar-bgc-argo, designed to transform raw BGC-Argo profiles into "analysis-ready" time series suitable for immediate scientific application. The data processing workflow consists of eight steps (Figure 2). At every step, diagnostic plots are generated and enable users to visually verify the reliability of the post-processing, which prevents a "black-box" approach and ensuring the production of high-quality datasets.
+`generate.ipynb` is the core component of `ar-bgc-argo`, designed to transform raw BGC-Argo profiles into "analysis-ready" time series suitable for immediate scientific application. The data processing workflow consists of eight steps (Figure 2). At every step, diagnostic plots are generated and enable users to visually verify the reliability of the post-processing, which prevents a "black-box" approach and ensuring the production of high-quality datasets.
 
-![Figure 2: Schematic workflow of the data-processing pipeline implemented in generate.ipynb. This example assumes a full-sensor float with an arbitrary WMO ID (1234567)](figures/Figure2.png)
+![Figure 2: Schematic workflow of the data-processing pipeline implemented in `generate.ipynb`. This example assumes a full-sensor float with an arbitrary WMO ID (1234567)](figures/Figure2.png)
 
 # Acknowledgements
 
-BGC-Argo data are freely available through one of the two Global Data Assembly Centers (GDAC), using the WMO number of the float, which is its specific identifier. We thank Hidehiro Fujio for computational assistance and Pete Strutton, Clara Vives, Kanako Sato, Yoshimi Kawai for insightful discussion on BGC-Argo floats and feedback on
-ar-bgc-argo. This work was supported by JSPS KAKENHI Grant Number JP24H02226 and the Nakajima Foundation.
+BGC-Argo data are freely available through one of the two Global Data Assembly Centers (GDAC), using the WMO number of the float, which is its specific identifier. We thank Hidehiro Fujio for computational assistance and Pete Strutton, Clara Vives, Kanako Sato, Yoshimi Kawai for insightful discussion on BGC-Argo floats and feedback on earlier versions of `ar-bgc-argo`. This work was supported by JSPS KAKENHI Grant Number JP24H02226 and the Nakajima Foundation.
