@@ -46,7 +46,7 @@ Despite the growing application of BGC-Argo data, the raw profiles include techn
 
 ## search.ipynb
 
-`search.ipynb` searches for BGC-Argo floats from the synthetic-profile index file (argo_synthetic-profile_index.txt) of the Global Data Assembly Center [GDAC; @bittig2019] and based on the user inputs, including the temporal and spatial coverages and the biogeochemical variables of interest. In addition, `search.ipynb` allows users to narrow
+`search.ipynb` searches for BGC-Argo floats from the synthetic-profile index file (argo_synthetic-profile_index.txt) of the Global Data Assembly Center [GDAC\; @bittig2019] and based on the user inputs, including the temporal and spatial coverages and the biogeochemical variables of interest. In addition, `search.ipynb` allows users to narrow
 down the float selection based on three key criteria:
 
 - mindays: the minimum duration of the data record to ensure sufficient temporal coverage (e.g., at least 365 days).
