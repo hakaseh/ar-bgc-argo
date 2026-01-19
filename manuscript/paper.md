@@ -46,14 +46,14 @@ Despite the growing application of BGC-Argo data, the raw profiles include techn
 
 ## search.ipynb
 
-`search.ipynb` searches for BGC-Argo floats from the synthetic-profile index file (argo_synthetic-profile_index.txt) of the Global Data Assembly Center (GDAC; [@bittig2019]) and based on the user inputs, including the temporal and spatial coverages and the biogeochemical variables of interest. In addition, `search.ipynb` allows users to narrow
+`search.ipynb` searches for BGC-Argo floats from the synthetic-profile index file (argo_synthetic-profile_index.txt) of the Global Data Assembly Center [GDAC; @bittig2019] and based on the user inputs, including the temporal and spatial coverages and the biogeochemical variables of interest. In addition, `search.ipynb` allows users to narrow
 down the float selection based on three key criteria:
 
 - mindays: the minimum duration of the data record to ensure sufficient temporal coverage (e.g., at least 365 days).
 
 - minfreq: the minimum sampling frequency required to capture temporal variability (e.g., at least every 14 days).
 
-- maxdrift: the float's maximum drift speed (e.g., 0.05 m/s), which is particularly useful for identifying "quasi-Eulerian" floats suitable for one-dimensional modelling (e.g., [@bruggeman2024]).
+- maxdrift: the float's maximum drift speed (e.g., 0.05 m/s), which is particularly useful for identifying "quasi-Eulerian" floats suitable for one-dimensional modelling [e.g., @bruggeman2024].
 
 The trajectories of all qualified floats based on the search criteria are drawn on a map and their temporal coverages are visualized on a time series. These visualizations provide an intuitive overview, enabling users to identify potential spatial and temporal biases in observational coverage within the study region of interest prior to data retrieval [@hayashida2025].
 
@@ -70,7 +70,7 @@ target float is already known. Upon execution, `download.ipynb` creates a direct
 
 # Software design
 
-`ar-bgc-argo` was designed to help get started with the BGC-Argo data analysis, while allowing the users to see and modify the source code as they run the Jupyter Notebook templates. Doing so motivates the users to learn the code and customize it for their own application. This approach is structurally different from library-based products such as `argopy` [@maze2020] that are designed to work without needing to see the source code. Furthermore, `ar-bgc-argo` gives immediate access to post-processed data as soon as the data become available on GDACs. This near-real-time capability is advantageous over data archiving such as @johnson2023, which is updated approximately every six months.
+`ar-bgc-argo` was designed to help get started with the BGC-Argo data analysis, while allowing the users to see and modify the source code as they run the Jupyter Notebook templates. Doing so motivates the users to learn the code and customize it for their own application. This approach is structurally different from library-based products [e.g., @maze2020], which are designed to work without needing to see the source code. Furthermore, `ar-bgc-argo` gives immediate access to post-processed data as soon as the data become available on GDACs. This near-real-time capability is advantageous over data archiving such as @johnson2023, which is updated approximately every six months.
 
 # Research impact statement
 
