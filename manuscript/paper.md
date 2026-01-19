@@ -53,7 +53,7 @@ down the float selection based on three key criteria:
 
 - minfreq: the minimum sampling frequency required to capture temporal variability (e.g., at least every 14 days).
 
-- maxdrift: the float's maximum drift speed (e.g., 0.05 m/s), which is particularly useful for identifying "quasi-Eulerian" floats suitable for one-dimensional modeling (e.g., [@bruggeman2024]).
+- maxdrift: the float's maximum drift speed (e.g., 0.05 m/s), which is particularly useful for identifying "quasi-Eulerian" floats suitable for one-dimensional modelling (e.g., [@bruggeman2024]).
 
 The trajectories of all qualified floats based on the search criteria are drawn on a map and their temporal coverages are visualized on a time series. These visualizations provide an intuitive overview, enabling users to identify potential spatial and temporal biases in observational coverage within the study region of interest prior to data retrieval [@hayashida2025].
 
@@ -64,9 +64,21 @@ target float is already known. Upon execution, `download.ipynb` creates a direct
 
 ## generate.ipynb
 
-`generate.ipynb` is the core component of `ar-bgc-argo`, designed to transform raw BGC-Argo profiles into "analysis-ready" time series suitable for immediate scientific application. The data processing workflow consists of eight steps (Figure 2). At every step, diagnostic plots are generated and enable users to visually verify the reliability of the post-processing, which prevents a "black-box" approach and ensuring the production of high-quality datasets.
+`generate.ipynb` is the core component of `ar-bgc-argo`, designed to transform raw BGC-Argo profiles into "analysis-ready" time series suitable for immediate scientific application. The data processing workflow consists of eight steps (Figure 2). At every step, diagnostic plots are generated and enable users to visually verify the reliability of the post-processing, which prevents a "black-box" approach and ensures the production of high-quality datasets.
 
 ![Figure 2: Schematic workflow of the data-processing pipeline implemented in `generate.ipynb`, which involves procedures based on @briggs2020, @schmechtig2023, and @xing2012. This example assumes a full-sensor float with an arbitrary WMO ID (1234567).](figures/Figure2.png)
+
+# Software design
+
+`ar-bgc-argo` was designed to help get started with the BGC-Argo data analysis, while allowing the users to see and modify the source code as they run the Jupyter Notebook templates. Doing so motivates the users to learn the code and customize it for their own application. This approach is structurally different from library-based products such as `argopy` [@maze2020] that are designed to work without needing to see the source code. Furthermore, `ar-bgc-argo` gives immediate access to post-processed data as soon as the data become available on GDACs. This near-real-time capability is advantageous over data archiving such as @johnson2023, which is updated approximately every six months.
+
+# Research impact statement
+
+There are various ways in which `ar-bgc-argo` can be used for oceanographic research. First, `ar-bgc-argo` may be used stand alone to monitor and understand the vertical structure of physical and biogeochemical properties in a specific region of interest on a near-real-time basis, which may help in research expedition planning. Second, `ar-bgc-argo` may be adapted to serve as initial and boundary conditions for one-dimensional ocean models as mentioned above [@bruggeman2024]. Third, `ar-bgc-argo` is a quick and easy tool for assessing the performance of large-scale ocean biogeochemical model simulations as it provides refined float time series that has uniform vertical grids ready for immediate comparison. In fact, `ar-bgc-argo` has been used for assessment of seasonal ocean prediction of chlorophyll-a and nitrate in the equatorial Pacific [@doi2026]. Lastly, `ar-bgc-argo` is intended to contribute to attracting new end users of BGC-Argo data globally, but particularly in Japan, by providing the Japanese language support.
+
+# AI usage disclosure
+
+Generative AI tools were used for debugging the Jupyter Notebook templates.
 
 # Acknowledgements
 
