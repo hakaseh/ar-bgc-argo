@@ -24,7 +24,7 @@ affiliations:
   - name: Application Laboratory, Japan Agency for Marine-Earth Science and Technology, Yokohama, Japan
     index: 2
 
-date: 17 January 2026
+date: 19 January 2026
 bibliography: paper.bib
 ---
 
@@ -85,4 +85,5 @@ Generative AI tools were used for debugging the Jupyter Notebook templates.
 BGC-Argo data are freely available through one of the two GDACs. We thank Hidehiro Fujio for computational assistance and Pete Strutton, Clara Vives, Kanako Sato, Yoshimi Kawai for insightful discussion on BGC-Argo floats and feedback on earlier versions of `ar-bgc-argo`. This work was supported by JSPS KAKENHI Grant Number JP24H02226 and the Nakajima Foundation.
 
 # References
+
 
