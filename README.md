@@ -16,13 +16,13 @@ To install `bgc-argo-tutorials` on your local system, the best way is to use `gi
 ## 🛠️ Installation and Setup
 We highly recommend using `conda` to manage your Python environment, as it automatically handles the complex system-level dependencies required for oceanographic mapping tools (like `cartopy`). However, if your institution restricts `conda`, we also provide a standard `pip` installation method.
 
-### Option 1: Using Conda (Recommended)
-
 1. Clone the repository and navigate into it:
     ```
     git clone https://github.com/your-username/bgc-argo-tutorials.git
     cd bgc-argo-tutorials
     ```
+
+### Option 1: Using Conda (Recommended)
 
 1. Create the environment from the provided YAML file:
     ```
