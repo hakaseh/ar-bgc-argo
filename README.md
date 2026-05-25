@@ -18,7 +18,7 @@ We highly recommend using `conda` to manage your Python environment, as it autom
 
 1. Clone the repository and navigate into it:
     ```
-    git clone https://github.com/your-username/bgc-argo-tutorials.git
+    git clone https://github.com/hakaseh/bgc-argo-tutorials.git
     cd bgc-argo-tutorials
     ```
 
