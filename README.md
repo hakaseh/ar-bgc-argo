@@ -80,6 +80,9 @@ Finally, launch Jupyter (e.g., `jupyter notebook` or `jupyterlab`), open `lesson
 * **floats** contains the float time series and individual profiles downloaded in Lesson 3 and the interpolated time series generated in lessons.
 * **_drafts** contains lessons in progress (incomplete and untested).
 
+## Workshop
+We introduced `bgc-argo-tutorials` to the OneArgo community by holding a side event at the OneArgo International Workshop in Sendai, Japan, on June 2, 2026. The presentation slides can be downloaded from [this link](https://researchmap.jp/hakaseh/presentations/53846403/attachment_file.pptx).
+
 ## 🗳️ Feedback 
 We want to hear your thoughts! Please feel free to provide your user experience by visiting [this link](https://forms.gle/oAGmz5RTW4Pp46bt7). Your feedback will help us improve the contents of `bgc-argo-tutorials`.
 
