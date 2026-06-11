@@ -66,10 +66,10 @@ We highly recommend using `conda` to manage your Python environment, as it autom
 
 Register this specific environment as a permanent Jupyter kernel:
 ```
-python -m ipykernel install --user --name=env --display-name "bgc-argo-tutorials"
+python -m ipykernel install --user --name=bgc-argo-tutorials --display-name="bgc-argo-tutorials"
 ```
 
-Finally, launch Jupyter (e.g., `jupyter notebook` or `jupyterlab`), open `lesson_01.ipynb`, and select the `bgc-argo-tutorials` environment from the notebook's drop-down menu. You are all set!
+Finally, launch Jupyter (e.g., `jupyter notebook` or `jupyterlab`), open `lesson_01.ipynb`. It should automatically set `bgc-argo-tutorials` as your kernel. If not, select that kernel from the notebook's drop-down menu on the upper-right corner. Now you are all set!
 
 ## Directory Structure
 `bgc-argo-tutorials` consists of the following folders:
