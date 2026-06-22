@@ -71,6 +71,15 @@ python -m ipykernel install --user --name=bgc-argo-tutorials --display-name="bgc
 
 Finally, launch Jupyter (e.g., `jupyter notebook` or `jupyterlab`), open `lesson_01.ipynb`. It should automatically set `bgc-argo-tutorials` as your kernel. If not, select that kernel from the notebook's drop-down menu on the upper-right corner. Now you are all set!
 
+### Re-opening
+
+When you re-open `bgc-argo-tutorials`, take the following steps:
+
+1. Open your Terminal.
+2. Go to the `bgc-argo-tutorials` directory (i.e., `cd bgc-argo-tutorials`).
+3. Activate your virtual environment (i.e., `source env/bin/activate` for Mac/Linux and `env\Scripts\activate` for Windows).
+4. Start the Jupyter session (i.e., `jupyter notebook` or `jupyterlab`).
+
 ## Directory Structure
 `bgc-argo-tutorials` consists of the following folders:
 
