@@ -90,7 +90,7 @@ When you re-open `bgc-argo-tutorials`, take the following steps:
 * **_drafts** contains lessons in progress (incomplete and untested).
 
 ## Workshop
-We introduced `bgc-argo-tutorials` to the OneArgo community by holding a side event at the OneArgo International Workshop in Sendai, Japan, on June 2, 2026. The presentation slides can be downloaded from [this link](https://researchmap.jp/hakaseh/presentations/53846403/attachment_file.pptx).
+We introduced `bgc-argo-tutorials` to the OneArgo community by holding a side event at the OneArgo International Workshop in Sendai, Japan, on June 2, 2026. The recording is available on [YouTube](https://youtu.be/rvtxQ7dL31M). The presentation slides can be downloaded from [this link](https://researchmap.jp/hakaseh/presentations/53846403/attachment_file.pptx).
 
 ## 🗳️ Feedback 
 We want to hear your thoughts! Please feel free to provide your user experience by visiting [this link](https://forms.gle/oAGmz5RTW4Pp46bt7). Your feedback will help us improve the contents of `bgc-argo-tutorials`.
